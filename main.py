@@ -44,11 +44,11 @@ def get_data():
     ])
     batch_size=128
 
-    trainset = torchvision.datasets.CIFAR100(root='./Data', train=True, download=True, transform=transform_train)
-    train_dataloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=8)
+    trainset = torchvision.datasets.CIFAR100(root='./Data', train=False, download=True, transform=transform_train)
+    train_dataloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuffle=True, num_workers=4)
 
     testset = torchvision.datasets.CIFAR100(root='./Data', train=False, download=False, transform=transform_test)
-    test_dataloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=8)
+    test_dataloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=4)
     return train_dataloader, test_dataloader
 
 def eval(model, test_loader):
