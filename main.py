@@ -233,8 +233,9 @@ def train(model, prune, train_dataloader, test_dataloader, model_name, lr, num_e
         torch.save(model,model_name)
         return model
 
-def main():
+if __name__ == '__main__':
     train_loader, test_loader = get_data()
+    print('========Data Load Successful=========')
     train(vgg16_bn(), prune=False, train_dataloader=rain_loader, test_dataloader=test_loader, model_name='vgg16', lr=0.001, num_epochs=100)
     train(vgg16_bn_prune(),prune=False, train_dataloader=rain_loader, test_dataloader=test_loader, model_name='vgg16', lr=0.001, num_epochs=100)
 
