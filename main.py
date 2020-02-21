@@ -13,15 +13,15 @@ from vgg_prune import vgg16_bn_prune
 from vgg import vgg16_bn
 import argparse
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--mode', type=str, required=True, choices=['train', 'prune', 'test'])
-parser.add_argument('--batch_size', type=int, default=256)
-# parser.add_argument('--verbose', action='store_true', default=False)
-parser.add_argument('--num_epochs', type=int, default=100)
-parser.add_argument('--learning_rate', type=float, default=0.001)
-parser.add_argument('--pruning_constant', type=float, default=0.3)
+# parser = argparse.ArgumentParser()
+# parser.add_argument('--mode', type=str, required=True, choices=['train', 'prune', 'test'])
+# parser.add_argument('--batch_size', type=int, default=256)
+# # parser.add_argument('--verbose', action='store_true', default=False)
+# parser.add_argument('--num_epochs', type=int, default=100)
+# parser.add_argument('--learning_rate', type=float, default=0.001)
+# parser.add_argument('--pruning_constant', type=float, default=0.3)
 
-args = parser.parse_args()
+# args = parser.parse_args()
 
 
 def get_data():
@@ -236,8 +236,8 @@ def train(model, prune, train_dataloader, test_dataloader, model_name, lr, num_e
 if __name__ == '__main__':
     train_loader, test_loader = get_data()
     print('========Data Load Successful=========')
-    train(vgg16_bn(), prune=False, train_dataloader=rain_loader, test_dataloader=test_loader, model_name='vgg16', lr=0.001, num_epochs=100)
-    train(vgg16_bn_prune(),prune=False, train_dataloader=rain_loader, test_dataloader=test_loader, model_name='vgg16', lr=0.001, num_epochs=100)
+    train(vgg16_bn(), prune=False, train_dataloader=train_loader, test_dataloader=test_loader, model_name='vgg16', lr=0.001, num_epochs=100)
+    train(vgg16_bn_prune(),prune=False, train_dataloader=train_loader, test_dataloader=test_loader, model_name='vgg16', lr=0.001, num_epochs=100)
 
     
 
